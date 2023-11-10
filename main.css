@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #2e2e2e;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+.aviso {
+    color: #fff;
+}
+
+.sucesso {
+    color: #fff;
+}
+
+h1 {
+    color: #fff;
+}
+
+/* Campos */
+
+.label {
+    font-size: 15px;
+    padding-left: 10px;
+    top: 13px;
+    transition: 0.3s;
+    pointer-events: none;
+    color: #fff;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.input {
+    margin-bottom: 20px;
+    width: 220px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 20px;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
+    border: 2px solid transparent;
+    color: #fff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4),
+    inset 3px 3px 10px rgba(0,0,0,1),
+    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:valid,
+.input:focus {
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+    -1px -1px 6px rgba(255, 255, 255, 0.4),
+    inset 3px 3px 10px rgba(0,0,0,1),
+    inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+/* Botão de envio */
+
+.button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 550px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: mediumspringgreen solid 0.15em;
+    border-radius: 0.25em;
+    color: rgb(152, 255, 216);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 300ms, color 300ms;
+    user-select: none;
+    background-color: rgb(34, 153, 113);
+}
+
+.button p {
+    z-index: 1;
+}
+
+.button:hover {
+    color: #ffffff;
+}
+
+.button:active {
+    border-color: teal;
+}
+
+.button::after, .button::before {
+    content: "";
+    position: absolute;
+    width: 9em;
+    aspect-ratio: 1;
+    background: mediumspringgreen;
+    opacity: 50%;
+    border-radius: 50%;
+    transition: transform 500ms, background 300ms;
+}
+
+.button::before {
+    left: 0;
+    transform: translateX(-8em);
+}
+
+.button::after {
+    right: 0;
+    transform: translateX(8em);
+}
+.button:hover:before {
+    transform: translateX(-1em);
+}
+
+.button:hover:after {
+    transform: translateX(1em);
+}
+
+.button:active:before,
+.button:active:after {
+    background: teal;
+}

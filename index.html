@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Depósito</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <h1>Saque aqui:</h1>
+
+    <form id="saqueForm">
+        <label for="saldoConta" class="label"><h2>Saldo da Conta:</h2></label>
+        <input type="number" class="input" id="saldoConta" name="saldoConta" pattern="\d+(\.\d{1,2})?" title="Somente números, com até duas casas decimais" required>
+    
+        <br>
+    
+        <label for="valorSaque" class="label"><h2>Valor a ser Sacado:</h2></label>
+        <input type="number" class="input" id="valorSaque" name="valorSaque" pattern="\d+(\.\d{1,2})?" title="Somente números, com até duas casas decimais" required>
+    
+        <br>
+    
+        <button type="button" class="button" onclick="validarSaque()"><p>Realizar Saque</p></button>
+    </form>
+    
+    <div id="result" class="aviso"></div>
+    
+    <script>
+
+        function validarSaque() {
+            var saldoConta = parseFloat(document.getElementById("saldoConta").value);
+            var valorSaque = parseFloat(document.getElementById("valorSaque").value);
+            var resultElement = document.getElementById("result");
+    
+        if (isNaN(saldoConta) || isNaN(valorSaque)) {
+            resultElement.innerHTML = "<span class='aviso'>Por favor, preencha todos os campos com valores válidos.</span>";
+        } else if (saldoConta < valorSaque) {
+            resultElement.innerHTML = "<span class='aviso'>Saldo insuficiente. O valor do saque é maior que o saldo da conta.</span>";
+        } else {
+            resultElement.innerHTML = "<span class='sucesso'>Saque realizado com sucesso!<br><br>" +
+            "<label class='label'>Saldo da Conta:</label> R$ " + saldoConta.toFixed(2) + "<br>" +
+            "<label class='label'>Valor Sacado:</label> R$ " + valorSaque.toFixed(2) + "</span>";
+    
+            // Limpar os valores dos campos
+            document.getElementById("saldoConta").value = "";
+            document.getElementById("valorSaque").value = "";
+        }
+        }
+    </script>
+    
+</body>
+</html>
